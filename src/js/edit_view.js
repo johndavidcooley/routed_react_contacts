@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import SSF from 'react-simple-serial-form';
 import Icon from './icon';
 import Dropzone from 'react-dropzone';
+import { Link } from 'react-router';
 import ContactView from './contact_view';
 import Contact from './constructor';
 
@@ -15,24 +16,30 @@ export default class EditView extends Component {
 		}
 	}
 
-	static propTypes = {
+	// static propTypes = {
 
-		onEditCancel: PropTypes.func.isRequired,
-		onEditSubmit: PropTypes.func.isRequired
-	}
+	// 	onEditCancel: PropTypes.func.isRequired,
+	// 	onEditSubmit: PropTypes.func.isRequired
+	// }
 
 	dropHandler([file]) {
 		this.setState({preview: file.preview});
 	}
 
+	dataHandler() {
+		hashHistory.push("/contact_view");
+	}
+
 	render() {
-		let { onEditCancel, onEditSubmit, contact } = this.props;
+		// let { onEditCancel, onEditSubmit, contact } = this.props;
 		return (
 			<div className="form-view">
-				<SSF onData={onEditSubmit}>
-					<div className="back-home" onClick={onEditCancel}>
-						<Icon type="arrow-left" />
-					</div>
+				<SSF onData={dataHandler}>
+					<Link to='/contact_view'>
+						<div className="back-home">
+							<Icon type="arrow-left" />
+						</div>
+					</Link>
 					<h3>Edit Contact</h3>
 					<div>
 						<label>

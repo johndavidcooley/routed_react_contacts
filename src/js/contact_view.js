@@ -1,29 +1,32 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 import Icon from './icon';
 // import CONTACT_SHAPE from './contact_shape';
 
 export default class ContactView extends Component {
-	static propTypes = {
-		contact: PropTypes.shape ({
-			firstName: PropTypes.string.isRequired,
-			lastName: PropTypes.string.isRequired,
-			email: PropTypes.string.isRequired,
-			mobile: PropTypes.string.isRequired,
-			location: PropTypes.string.isRequired,
-			image: PropTypes.string.isRequired
-		}).isRequired,
-		onBack: PropTypes.func.isRequired,
-		onEdit: PropTypes.func.isRequired
-	}
+	// static propTypes = {
+	// 	contact: PropTypes.shape ({
+	// 		firstName: PropTypes.string.isRequired,
+	// 		lastName: PropTypes.string.isRequired,
+	// 		email: PropTypes.string.isRequired,
+	// 		mobile: PropTypes.string.isRequired,
+	// 		location: PropTypes.string.isRequired,
+	// 		image: PropTypes.string.isRequired
+	// 	}).isRequired,
+	// 	onBack: PropTypes.func.isRequired,
+	// 	onEdit: PropTypes.func.isRequired
+	// }
 
 	render() {
-		let { contact, onBack, onEdit } = this.props;
+		// let { contact, onBack, onEdit } = this.props;
 		return (
 			<div className="contact-view">
 				<div className = "avatar">
-					<button onClick={onBack}>
-						<Icon type="arrow-left"/>
-					</button>
+					<Link to="/">
+						<button>
+							<Icon type="arrow-left"/>
+						</button>
+					</Link>
 					<img src={contact.image} alt={`${contact.firstName} ${contact.lastName}`} />
 				</div>
 				<ul>
@@ -48,9 +51,11 @@ export default class ContactView extends Component {
 						{contact.location}
 					</li>
 				</ul>
-				<button className="edit-button" onClick={onEdit}>
-					Edit user
-				</button>
+				<Link to="/edit">
+					<button className="edit-button">
+						Edit user
+					</button>
+				</Link>
 			</div>
 		);
 	}
