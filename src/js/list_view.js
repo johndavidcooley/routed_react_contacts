@@ -5,19 +5,10 @@ import Icon from './icon';
 
 export default class ListView extends Component {
 
-	// static propTypes = {
-	// 	arrayofContacts: PropTypes.array.isRequired,
-	// 	onContact: PropTypes.func.isRequired,
-	// 	onNewPerson: PropTypes.func.isRequired
-	// }
-
-
-
 	onContactSelect(contact) {
-		// let { onContact } = this.props;
 		return 	(
-			<Link to="/contact_view">
-					<li key={`${contact.firstName} ${contact.lastName}`}>
+			<Link key={contact.mobile} to={`/contact_view/${contact.firstName}_${contact.lastName}`}>
+					<li>
 						<img src={contact.image} alt={`${contact.firstName} ${contact.lastName}`} />
 						{`${contact.firstName} ${contact.lastName}`}
 					</li>

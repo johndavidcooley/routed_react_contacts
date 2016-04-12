@@ -16,12 +16,6 @@ export default class FormView extends Component {
 		}
 	}
 
-	// static propTypes = {
-	// 	onAddNew: PropTypes.func.isRequired,
-	// 	onReturnHome: PropTypes.func.isRequired
-
-	// }
-
 	dropHandler([file]) {
 		this.setState({preview: file.preview});
 	}
@@ -52,7 +46,6 @@ export default class FormView extends Component {
 	}
 
 	render() {
-		// let { onAddNew, onReturnHome } = this.props;
 		return (
 			<div className="form-view">
 				<SSF onData={this.dataHandler}>
