@@ -1,0 +1,181 @@
+/* CSS Entry Point */
+@import 'font-awesome';
+
+.app {
+	border: 2px solid #ededed;
+	border-radius: 20px;
+	font-family: Helvetica, sans-serif;
+	height: 678px;
+	margin: auto;
+	overflow: hidden;
+	position: relative;
+	width: 400px;
+}
+
+button {
+	
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+}
+
+img {
+	border: 1px solid gray;
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+div {
+	img {
+		height: 150px;
+		width: 150px;
+	}
+}
+
+li{
+	display: flex;
+	align-items: center;
+	font-size: 22px;
+	border-bottom: 2px solid #ededed;
+	height: 50px;
+	list-style: none;
+	margin: 0;
+	img {
+		margin: 10px 10px 10px 10px;
+		height: 30px;
+		width: 30px;
+	}
+}
+
+.fa-user, .fa-envelope, .fa-mobile, .fa-music, .fa-globe {
+	font-size: 20px;
+	margin: 0px 20px 0px 20px;
+}
+
+.fa-user {
+	padding-left: calc((20px - 15.7031px) / 2);
+	padding-right: calc((20px - 15.7031px) / 2);
+}
+
+.fa-mobile {
+	padding-left: calc((20px - 8.5625px) / 2);
+	padding-right: calc((20px - 8.5625px) / 2);
+}
+
+.fa-music {
+	padding-left: calc((20px - 17.1406px) / 2);
+	padding-right: calc((20px - 17.1406px) / 2);
+}
+
+.fa-globe {
+	margin-right: 22.86px;
+	padding-left: calc((20px - 17.1406px) / 2);
+	padding-right: calc((20px - 17.1406px) / 2);
+}
+
+.fa-arrow-left {
+	font-size: 25px;
+}
+
+.avatar {
+	background: #a7d076;
+	height: 200px;
+	position: relative;
+	button {
+		position: absolute;
+		left: 5px;
+		top: 5px;
+		background: none;
+		border: none;
+	}
+	img {
+		position: absolute;
+		top: calc(50% - 75px);
+		left: calc(50% - 75px);
+	}
+}
+
+.contact-names {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background: #a7d076;
+	color: white;
+	font-size: 30px;
+	height: 80px;
+}
+
+.peanut-butter {
+	height: 518px;
+	overflow: scroll;
+}
+
+.form-view {
+	height: 600px;
+	text-align: center;
+	h3 {
+		font-size: 30px;
+		margin: 0;
+		padding: 20px;
+	}
+	input {
+		border: 2px solid #ededed;
+		border-radius: 2px;
+		color: #a7d076;
+		font-size: 22px;
+		height: 30px;
+		width: 300px;
+		margin-bottom: 15px;
+	}
+	button {
+		background: #a7d076;
+		border: 2px solid #ededed;
+		border-radius: 4px;
+		color: #ededed;
+		font-size: 28px;
+		height: 60px;
+		margin-top: 12px;
+		width: 150px;
+
+	}
+}
+
+.add-new {
+	background: #a7d076;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	bottom: 0px;
+	color: white;
+	font-size: 30px;
+	height: 80px;
+	left: 0px;
+	position: absolute;
+	width: 100%;
+}
+
+.back-home {
+	color: #a7d076;
+	width: 40px;
+	position: absolute;
+	left: 5px;
+	top: 5px;
+}
+
+.drop {
+	margin: auto;
+	div {
+		border: none;
+		margin: auto;
+		img {
+			border: 2px solid #ededed;
+			border-radius: 4px;
+			height: 200px;
+			object-fit: cover;
+			width: 300px;
+			margin: auto;
+		}
+	}
+}
