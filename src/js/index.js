@@ -6,8 +6,15 @@ import ContactView from './contact_view';
 import ListView from './list_view';
 import contacts from './constructor';
 import FormView from './form_view';
-import EditView from './edit_view';
 
+render(
+	<Router history={hashHistory}>
+		<Route path="/" component={ListView}/>
+		<Route path="/contact_view" component={ContactView}/>
+		<Route path="/add_new" component={FormView}/>
+	</Router>,
+	document.querySelector('.app')
+	)
 
 // let addContactThenRender = (newContact) => {
 // 	contacts.push(newContact);
@@ -108,12 +115,3 @@ import EditView from './edit_view';
 // }
 
 // renderListView();
-
-render(
-	<Router history={hashHistory}>
-		<Route path="/" component={ListView}/>
-		<Route path="/contact_view" component={ContactView}/>
-		<Route path="/add_new" component={FormView}/>
-		<Route path="/edit" component={EditView}/>
-	</Router>
-	)

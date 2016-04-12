@@ -15,12 +15,14 @@ export default class ListView extends Component {
 
 	onContactSelect(contact) {
 		// let { onContact } = this.props;
-		return 	<Link to="/contact_view">
+		return 	(
+			<Link to="/contact_view">
 					<li key={`${contact.firstName} ${contact.lastName}`}>
 						<img src={contact.image} alt={`${contact.firstName} ${contact.lastName}`} />
 						{`${contact.firstName} ${contact.lastName}`}
 					</li>
-				</Link>
+			</Link>
+		)
 	}
 
 

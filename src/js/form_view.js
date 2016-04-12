@@ -3,6 +3,8 @@ import SSF from 'react-simple-serial-form';
 import { Link } from 'react-router';
 import Icon from './icon';
 import Dropzone from 'react-dropzone';
+import contacts from './constructor';
+import { hashHistory } from 'react-router';
 
 export default class FormView extends Component {
 
@@ -17,14 +19,35 @@ export default class FormView extends Component {
 	// static propTypes = {
 	// 	onAddNew: PropTypes.func.isRequired,
 	// 	onReturnHome: PropTypes.func.isRequired
+
 	// }
 
 	dropHandler([file]) {
 		this.setState({preview: file.preview});
 	}
 
-	dataHandler() {
-		contacts.push(contact);
+	dataHandler(data) {
+		contacts.push(data);
+		contacts.sort(
+		function(a, b) {
+			var lastNameA = a.lastName.toLowerCase();
+			var lastNameB = b.lastName.toLowerCase();
+			var firstNameA = a.firstName.toLowerCase();
+			var firstNameB = b.firstName.toLowerCase();
+			if (lastNameA < lastNameB) {
+				return -1;
+			} else if (lastNameA > lastNameB) {
+				return 1;
+			} else if (lastNameA === lastNameB) {
+					if (firstNameA < firstNameB) {
+						return -1;
+					} else if (firstNameA > firstNameB) {
+						return 1;
+					} else {
+						return 0;
+					}
+				}
+			});
 		hashHistory.push('/');
 	}
 
@@ -32,7 +55,7 @@ export default class FormView extends Component {
 		// let { onAddNew, onReturnHome } = this.props;
 		return (
 			<div className="form-view">
-				<SSF onData={dataHandler}>
+				<SSF onData={this.dataHandler}>
 					<Link to="/">
 						<div className="back-home">
 							<Icon type="arrow-left" />

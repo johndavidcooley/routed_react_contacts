@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import Icon from './icon';
+import contacts from './constructor';
 // import CONTACT_SHAPE from './contact_shape';
 
 export default class ContactView extends Component {
@@ -18,7 +19,7 @@ export default class ContactView extends Component {
 	// }
 
 	render() {
-		// let { contact, onBack, onEdit } = this.props;
+		let { contact } = this.props;
 		return (
 			<div className="contact-view">
 				<div className = "avatar">
@@ -27,35 +28,33 @@ export default class ContactView extends Component {
 							<Icon type="arrow-left"/>
 						</button>
 					</Link>
-					<img src={contact.image} alt={`${contact.firstName} ${contact.lastName}`} />
+					<img src={contacts[0].image} alt={`${contacts[0].firstName} ${contacts[0].lastName}`} />
 				</div>
 				<ul>
 					<li>
 						<Icon type="user" />
-						{`${contact.firstName} ${contact.lastName}`}
+						{`${contacts[0].firstName} ${contacts[0].lastName}`}
 					</li>
 					<li>
 						<Icon type="envelope" />
-						{contact.email}
+						{contacts[0].email}
 					</li>
 					<li>
 						<Icon type="mobile" />
-						{contact.mobile}
+						{contacts[0].mobile}
 					</li>
 					<li>
 						<Icon type="music" />
-						{contact.band}
+						{contacts[0].band}
 					</li>
 					<li>
 						<Icon type="globe" />
-						{contact.location}
+						{contacts[0].location}
 					</li>
 				</ul>
-				<Link to="/edit">
-					<button className="edit-button">
-						Edit user
-					</button>
-				</Link>
+				<button className="edit-button">
+					Edit user
+				</button>
 			</div>
 		);
 	}
