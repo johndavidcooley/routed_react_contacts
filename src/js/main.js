@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Icon from './icon';
 
 export default class Main extends Component {
 
@@ -6,13 +7,17 @@ export default class Main extends Component {
 		return (
 			<div className="main">
 				<header>
-					This is a static header.
+					<div className="phone-top">
+					<div className="camera" />
+					&nbsp;
+					<div className="listener" />
+					</div>
 				</header>
 				<div>
 					{this.props.children}
 				</div>
 				<footer>
-					This is a static footer.
+					<div className="home-button" />
 				</footer>
 			</div>
 		);

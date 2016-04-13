@@ -1,10 +1,18 @@
 import React, { Component, PropTypes } from 'react';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import Icon from './icon';
 import contacts from './constructor';
 
 export default class ContactView extends Component {
 
+
+clickHandler(contact) {
+	let makingSure = confirm('Are you sure?');
+	if (makingSure === true) {
+		contacts.splice(contacts.indexOf({contact}, 1));
+		hashHistory.push("/");
+	};
+}
 
 	render() {
 		let { contact_name } = this.props.params;
@@ -12,7 +20,7 @@ export default class ContactView extends Component {
 		return (
 			<div className="contact-view">
 				<div className = "avatar">
-					<Link to="/">
+					<Link to={`/contact_view/${contacts[0].firstName}_${contacts[0].lastName}`}>
 						<button>
 							<Icon type="arrow-left"/>
 						</button>
@@ -39,6 +47,16 @@ export default class ContactView extends Component {
 					<li>
 						<Icon type="globe" />
 						{contact.location}
+					</li>
+					<li className="edit-remove">
+						<Link to="/edit">
+							<div className="edit-remove-edit">
+								Edit
+							</div>
+						</Link>
+						<div onClick={this.clickHandler} className="edit-remove-remove">
+							Remove
+						</div>
 					</li>
 				</ul>
 			</div>

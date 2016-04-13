@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import SSF from 'react-simple-serial-form';
 import Icon from './icon';
 import Dropzone from 'react-dropzone';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import ContactView from './contact_view';
-import Contact from './constructor';
+import contacts from './constructor';
 
 export default class EditView extends Component {
 
@@ -16,26 +16,19 @@ export default class EditView extends Component {
 		}
 	}
 
-	// static propTypes = {
-
-	// 	onEditCancel: PropTypes.func.isRequired,
-	// 	onEditSubmit: PropTypes.func.isRequired
-	// }
-
 	dropHandler([file]) {
 		this.setState({preview: file.preview});
 	}
 
 	dataHandler() {
-		hashHistory.push("/contact_view");
+		hashHistory.push("/");
 	}
 
 	render() {
-		// let { onEditCancel, onEditSubmit, contact } = this.props;
 		return (
 			<div className="form-view">
-				<SSF onData={dataHandler}>
-					<Link to='/contact_view'>
+				<SSF onData={this.dataHandler}>
+					<Link to='/contact_view/${contacts[0].firstname'>
 						<div className="back-home">
 							<Icon type="arrow-left" />
 						</div>
@@ -43,32 +36,32 @@ export default class EditView extends Component {
 					<h3>Edit Contact</h3>
 					<div>
 						<label>
-							<input type="text" name="firstName">{contact.firstName}</input>
+							<input type="text" name="firstName" value={contacts[0].firstName}></input>
 						</label>
 					</div>
 					<div>
 						<label>
-							<input type="text" name="lastName" value={contact.lastName} />
+							<input type="text" name="lastName" value={contacts[0].lastName} />
 						</label>
 					</div>
 					<div>
 						<label>
-							<input type="email" name="email" value={contact.email} />
+							<input type="email" name="email" value={contacts[0].email} />
 						</label>
 					</div>
 					<div>
 						<label>
-							<input type="tel" name="mobile" value={contact.mobile} />
+							<input type="tel" name="mobile" value={contacts[0].mobile} />
 						</label>
 					</div>
 					<div>
 						<label>
-							<input type="text" name="band" value={contact.band} />
+							<input type="text" name="band" value={contacts[0].band} />
 						</label>
 					</div>
 					<div>
 						<label>
-							<input type="text" name="location" value={contact.location} />
+							<input type="text" name="location" value={contacts[0].location} />
 						</label>
 					</div>
 					<div className="drop">
