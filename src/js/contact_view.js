@@ -20,7 +20,7 @@ clickHandler(contact) {
 		return (
 			<div className="contact-view">
 				<div className = "avatar">
-					<Link to={`/contact_view/${contacts[0].firstName}_${contacts[0].lastName}`}>
+					<Link to="/">
 						<button>
 							<Icon type="arrow-left"/>
 						</button>
